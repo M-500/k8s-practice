@@ -15,9 +15,9 @@ FROM alpine:latest
 LABEL MAINTAINER="18574945291@163.com"
 
 WORKDIR /go/src/wll.com/server
-COPY --from=0
-COPY --from=0
-COPY --from = 0
+COPY --from=0 /go/src/k8spratice.com/server/config.yaml ./config.yaml
+COPY --from=0 /go/src/k8spratice.com/server/.kube/config .kube/config
+COPY --from = 0 /go/src/k8spratice.com/server/backend ./
 
 EXPOSE 8080
 ENTRYPOINT ./server
