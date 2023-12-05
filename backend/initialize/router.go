@@ -1,8 +1,8 @@
 package initialize
 
 import (
+	"backend/router"
 	"github.com/gin-gonic/gin"
-	"k8s-imooc/router"
 )
 
 //

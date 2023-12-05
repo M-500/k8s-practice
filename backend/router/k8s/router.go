@@ -1,8 +1,8 @@
 package k8s
 
 import (
+	"backend/api"
 	"github.com/gin-gonic/gin"
-	"k8s-imooc/api"
 )
 
 // @Description

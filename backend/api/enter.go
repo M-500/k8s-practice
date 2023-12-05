@@ -1,8 +1,8 @@
 package api
 
 import (
-	"k8s-imooc/api/example"
-	"k8s-imooc/api/k8s"
+	"backend/api/example"
+	"backend/api/k8s"
 )
 
 //

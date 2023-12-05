@@ -1,8 +1,8 @@
 package example
 
 import (
+	"backend/api"
 	"github.com/gin-gonic/gin"
-	"k8s-imooc/api"
 )
 
 //

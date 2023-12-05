@@ -1,7 +1,7 @@
 package global
 
 import (
-	"k8s-imooc/config"
+	"backend/config"
 	"k8s.io/client-go/kubernetes"
 )
 

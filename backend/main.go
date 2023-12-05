@@ -1,8 +1,8 @@
 package main
 
 import (
-	"k8s-imooc/global"
-	"k8s-imooc/initialize"
+	"backend/global"
+	"backend/initialize"
 )
 
 //

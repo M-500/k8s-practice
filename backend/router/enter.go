@@ -1,8 +1,8 @@
 package router
 
 import (
-	"k8s-imooc/router/example"
-	"k8s-imooc/router/k8s"
+	"backend/router/example"
+	"backend/router/k8s"
 )
 
 //
