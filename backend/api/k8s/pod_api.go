@@ -1,10 +1,10 @@
 package k8s
 
 import (
+	"backend/global"
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"k8s-imooc/global"
 	metaV1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"net/http"
 )
