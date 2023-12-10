@@ -1,7 +1,7 @@
 package initialize
 
 import (
-	"k8s-imooc/global"
+	"backend/global"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 )

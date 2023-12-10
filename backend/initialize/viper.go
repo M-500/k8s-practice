@@ -7,8 +7,8 @@ package initialize
 //
 
 import (
+	"backend/global"
 	"github.com/spf13/viper"
-	"k8s-imooc/global"
 )
 
 func Viper() {
