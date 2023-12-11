@@ -9,6 +9,7 @@ package k8s
 import (
 	"backend/global"
 	"backend/model/namespace/response"
+	rsp "backend/pkg/comm/response"
 	"context"
 	"github.com/gin-gonic/gin"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -31,4 +32,6 @@ func (*NamespaceAPI) GetNamespaceList(c *gin.Context) {
 			Status:            string(item.Status.Phase),
 		})
 	}
+	rsp.JsonSuccessData(c, "获取命名空间列表成功", namespaceList)
+	return
 }

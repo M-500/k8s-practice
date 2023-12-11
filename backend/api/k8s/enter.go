@@ -8,4 +8,5 @@ package k8s
 
 type Controller struct {
 	PodApi
+	NamespaceAPI
 }

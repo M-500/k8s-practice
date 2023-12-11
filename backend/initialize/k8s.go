@@ -18,10 +18,10 @@ func SetUpK8s() {
 	if err != nil {
 		panic(err.Error())
 	}
-	// create the clientset
-	clientset, err := kubernetes.NewForConfig(config)
+	// create the client set
+	clientSet, err := kubernetes.NewForConfig(config)
 	if err != nil {
 		panic(err.Error())
 	}
-	global.KubeConfigSet = clientset
+	global.KubeConfigSet = clientSet
 }
