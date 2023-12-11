@@ -1,23 +1,16 @@
-FROM golang:alpine as builder
-WORKDIR /go/src/kubeimooc.com/server
+# 使用官方的 Golang 镜像
+FROM golang:1.21-alpine
+ENV GOPROXY https://goproxy.cn,direct
+ENV GO111MODULE=on
+ENV CGO_ENABLED=0
+ENV GOOS=linux
+ENV GOARCH=amd64
+ # 设置工作目录
+WORKDIR /backend
 COPY . .
-
-
-RUN go env -w GO111MODULE = ON \
-    && go env -w GOPROXY = https://goproxy.cn,direct \
-    && go env -w CGO_ENABLED = 0 \
-    && go env \
-    && go mod tidy \
-    && go build -o server .
-
-FROM alpine:latest
-
-LABEL MAINTAINER="18574945291@163.com"
-
-WORKDIR /go/src/wll.com/server
-COPY --from=0 /go/src/k8spratice.com/server/config.yaml ./config.yaml
-COPY --from=0 /go/src/k8spratice.com/server/.kube/config .kube/config
-COPY --from = 0 /go/src/k8spratice.com/server/backend ./
-
+RUN go mod tidy
+RUN go build -o server .
+ # 暴露服务端口
 EXPOSE 8080
-ENTRYPOINT ./server
+ # 运行应用
+CMD ["./server"]
