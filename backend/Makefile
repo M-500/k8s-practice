@@ -22,7 +22,7 @@ run:
 	@docker-compose up -d
 
 	# 启动方式二 docker run  这里注意-v挂载的宿主机的地址改为部署时的实际决对路径
-    #@docker run --name=go-admin -p 8000:8000 -v /home/code/go/src/go-admin/go-admin/config:/go-admin-api/config  -v /home/code/go/src/go-admin/go-admin-api/static:/go-admin/static -v /home/code/go/src/go-admin/go-admin/temp:/go-admin-api/temp -d --restart=always go-admin:latest
+    #@docker run --name=go-admin -p 8000:8000 -v /home/code/go/src/go-admin/go-admin/win_config:/go-admin-api/win_config  -v /home/code/go/src/go-admin/go-admin-api/static:/go-admin/static -v /home/code/go/src/go-admin/go-admin/temp:/go-admin-api/temp -d --restart=always go-admin:latest
 
 	@echo "go-admin service is running..."
 
