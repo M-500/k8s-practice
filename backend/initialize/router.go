@@ -1,6 +1,7 @@
 package initialize
 
 import (
+	"backend/middlewares"
 	"backend/router"
 	"github.com/gin-gonic/gin"
 )
@@ -13,7 +14,7 @@ import (
 
 func SetUpRouters() *gin.Engine {
 	r := gin.Default()
-	r.Use()
+	r.Use(middlewares.CorsMiddleWare())
 	exampleRouterG := router.RouterGroupApp.ExampleRouterGroups
 	exampleRouterG.InitExample(r)
 	k8sRouterG := router.RouterGroupApp.K8SRouterGroups

@@ -26,15 +26,15 @@
       <!--      </el-table-column>-->
       <!--      <el-table-column label="namespace" prop="namespace"></el-table-column>-->
       <el-table-column label="node" width="100" prop="node"></el-table-column>
-<!--      <el-table-column label="images" :show-overflow-tooltip="true" prop="images"></el-table-column>-->
+      <!--      <el-table-column label="images" :show-overflow-tooltip="true" prop="images"></el-table-column>-->
       <el-table-column label="ready" width="100" prop="ready"></el-table-column>
       <el-table-column label="restarts" width="100" prop="restarts"></el-table-column>
       <el-table-column label="IP" prop="IP"></el-table-column>
-            <el-table-column label="age" prop="age">
-              <template slot-scope="{row}" style="cursor: pointer">
-                <timestamp :data="row.age"></timestamp>
-              </template>
-            </el-table-column>
+      <el-table-column label="age" prop="age">
+        <template slot-scope="{row}" style="cursor: pointer">
+          <timestamp :data="row.age"></timestamp>
+        </template>
+      </el-table-column>
       <el-table-column label="operation">
         <template slot-scope="{row}">
           <a class="operation-class" @click="editPod(row.name)">编辑</a>
@@ -50,7 +50,7 @@
 </template>
 <script>
 import Timestamp from "@/components/Timestamp";
-import {Message} from "element-ui";
+import { Message } from "element-ui";
 
 export default {
   name: "PodIndex",
@@ -79,6 +79,7 @@ export default {
       }
       this.$store.dispatch("pod/getPodItemOrList", params).then(res => {
         this.podList = res.data
+        console.log(1231231, this.podList)
       })
     },
     getPodItemOrList() {
@@ -129,7 +130,7 @@ export default {
   display: inline-block;
 }
 
-.data-operation div:nth-child(n+2) {
+.data-operation div:nth-child(n + 2) {
   margin-left: 5px;
 }
 
@@ -138,6 +139,6 @@ export default {
 }
 
 .operation-class:hover {
-  color: #409EFF;
+  color: #409eff;
 }
 </style>
