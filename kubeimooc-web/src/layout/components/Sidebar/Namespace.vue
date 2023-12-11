@@ -1,6 +1,6 @@
 <template>
-  <el-select class="ns-select" v-model="nsVal" @change="getValue"  placeholder="Namespace">
-    <el-option  v-for="(item) in nsOpts" :label="item" :value="item"></el-option>
+  <el-select class="ns-select" v-model="nsVal" @change="getValue" placeholder="Namespace">
+    <el-option v-for="(item) in nsOpts" :label="item" :key="item" :value="item"></el-option>
   </el-select>
 </template>
 
@@ -24,6 +24,7 @@ export default {
       })
       this.$store.dispatch("ns/getNamespaceList").then(res => {
         let data = res.data
+        console.log(data, '111')
         data.forEach((item) => {
           this.nsOpts.push(item.name)
         })
@@ -40,13 +41,12 @@ export default {
 /*  width: 100%;*/
 /*  border: 0;*/
 /*}*/
-.ns-select{
+.ns-select {
   /*position:absolute;*/
-  width:120px;
-  height:28px;
-  line-height:28px;
-  font-size:15px;
-  font-weight:bold;
+  width: 120px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 15px;
+  font-weight: bold;
 }
-
 </style>
