@@ -6,18 +6,16 @@
 
 package request
 
-import corev1 "k8s.io/api/core/v1"
-
-type ListMapItem struct {
-	Key   string `json:"key"`
-	Value string `json:"value"`
-}
+import (
+	"backend/model/base"
+	corev1 "k8s.io/api/core/v1"
+)
 
 type Base struct {
-	Name          string        `json:"name"`          // 名字
-	Labels        []ListMapItem `json:"labels"`        // 标签
-	Namespace     string        `json:"namespace"`     // 命名空间
-	RestartPolicy string        `json:"restartPolicy"` // 重启策略 Always | Never | On-Failure
+	Name          string             `json:"name"`          // 名字
+	Labels        []base.ListMapItem `json:"labels"`        // 标签
+	Namespace     string             `json:"namespace"`     // 命名空间
+	RestartPolicy string             `json:"restartPolicy"` // 重启策略 Always | Never | On-Failure
 }
 
 type Volume struct {
@@ -42,11 +40,11 @@ type DnsConfig struct {
 }
 
 type NetWorking struct {
-	HostNetwork bool          `json:"hostNetwork"`
-	HostName    string        `json:"hostName"`
-	DnsPolicy   string        `json:"dnsPolicy"`
-	DnsConfig   DnsConfig     `json:"dnsConfig"`
-	HostAliases []ListMapItem `json:"hostAliases"`
+	HostNetwork bool               `json:"hostNetwork"`
+	HostName    string             `json:"hostName"`
+	DnsPolicy   string             `json:"dnsPolicy"`
+	DnsConfig   DnsConfig          `json:"dnsConfig"`
+	HostAliases []base.ListMapItem `json:"hostAliases"`
 }
 type Resources struct {
 	Enable     bool  `json:"enable"`     //是否配置容器的配额
@@ -63,11 +61,11 @@ type VolumeMount struct {
 }
 
 type ProbeHttpGet struct {
-	Scheme      string        `json:"scheme"`      //请求协议http / https
-	Host        string        `json:"host"`        //请求host 如果为空 那么就是Pod内请求
-	Path        string        `json:"path"`        //请求路径
-	Port        int32         `json:"port"`        //请求端口
-	HttpHeaders []ListMapItem `json:"httpHeaders"` //请求的header
+	Scheme      string             `json:"scheme"`      //请求协议http / https
+	Host        string             `json:"host"`        //请求host 如果为空 那么就是Pod内请求
+	Path        string             `json:"path"`        //请求路径
+	Port        int32              `json:"port"`        //请求端口
+	HttpHeaders []base.ListMapItem `json:"httpHeaders"` //请求的header
 }
 type ProbeCommand struct {
 	Command []string `json:"command"` // cat /test/test.txt
@@ -144,7 +142,7 @@ type NodeScheduling struct {
 	//nodeName nodeSelector nodeAffinity
 	Type         string                        `json:"type"`
 	NodeName     string                        `json:"nodeName"`
-	NodeSelector []ListMapItem                 `json:"nodeSelector"`
+	NodeSelector []base.ListMapItem            `json:"nodeSelector"`
 	NodeAffinity []NodeSelectorTermExpressions `json:"nodeAffinity"`
 }
 
